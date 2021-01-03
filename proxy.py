@@ -19,6 +19,11 @@ iprule = subprocess.Popen(["iptables", "-t", "mangle", "-A", "POSTROUTING", "-p"
 iprule_rst = subprocess.Popen(["iptables", "-A", "OUTPUT", "-p", "tcp", "--tcp-flags", "RST", "RST",
                                "-j", "DROP"], stdout=subprocess.PIPE)
 
+iprule = subprocess.Popen(["iptables", "-t", "nat", "-A", "PREROUTING", "-p", "tcp", "--dport", "80", "-j", "DNAT",
+                           "--to-destination", config.server_IP + ":80"])
+iprule = subprocess.Popen(["iptables", "-t", "nat", "-A", "POSTROUTING", "-d", config.server_IP + "/32" ,"-p", "tcp",
+                           "-m", "tcp", "--dport", "80", "-j", "SNAT", "--to-source", config.proxy_IP])
+
 print('Connecting to the PostgreSQL database...')
 conn = psycopg2.connect(
     host=config.sql_server_ip,
@@ -189,6 +194,8 @@ except KeyboardInterrupt:
     print("exit")
 removeIpTables = subprocess.Popen(["iptables", "-t", "mangle", "-F"])
 removeIpTables_out = subprocess.Popen(["iptables", "-F", "OUTPUT"])
+removeIpTables_out = subprocess.Popen(["iptables", "-F"])
+removeIpTables_out = subprocess.Popen(["iptables", "-t", "nat", "-F"])
 cur.execute("update module_status set http_proxy = 'off' where http_proxy like 'on' ")
 conn.commit()
 cur.close()
