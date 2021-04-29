@@ -1,0 +1,5 @@
+scapy
+regex
+gzip-utils
+psycopg2-binary
+sql

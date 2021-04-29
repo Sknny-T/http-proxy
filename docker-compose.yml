@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  httpproxy:
+    build: .
+    container_name: "esca-http-proxy"
+    network_mode: "host"
+    env_file:
+      - ./config.env
+    cap_add:
+      - ALL
