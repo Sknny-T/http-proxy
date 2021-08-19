@@ -16,36 +16,35 @@ import sql
 print('Set iptables rule 1')
 # Forward TCP Packet with Destination Port 80 to NFQUEUE
 iprule = subprocess.Popen(["iptables", "-t", "mangle", "-A", "POSTROUTING", "-p", "tcp", "--dport", "80", "-j", "NFQUEUE"], stdout=subprocess.PIPE)
-                     
-         
+            
+#try:
+#    iprule = subprocess.Popen(["iptables", "-t", "mangle", "-A", "POSTROUTING", "-p", "tcp", "--dport", "80", "-j", "NFQUEUE"], stdout=subprocess.PIPE)
+#except subprocess.CalledProcessError as e:
+#    print('exit code: {}'.format(e.returncode))
+#    print('stdout: {}'.format(e.output.decode(sys.getfilesystemencoding())))
+#    print('stderr: {}'.format(e.stderr.decode(sys.getfilesystemencoding())))            
+            
+
 iprule.wait()
 print('Set iptables rule 2')
 #All TCP  with server_IP as source
 iprule = subprocess.Popen(["iptables", "-t", "mangle", "-A", "POSTROUTING", "-p", "tcp", "-s", config.server_IP,
                            "-j", "NFQUEUE"], stdout=subprocess.PIPE)
-                           
-
 iprule.wait()
 print('Set iptables rule 3')
 # Drop RST packets
 iprule_rst = subprocess.Popen(["iptables", "-A", "OUTPUT", "-p", "tcp", "--tcp-flags", "RST", "RST",
                                "-j", "DROP"], stdout=subprocess.PIPE)
-
-
 iprule_rst.wait()
 print('Set iptables rule 4')
 # Forward all packets on port 80 to server_IP
 iprule = subprocess.Popen(["iptables", "-t", "nat", "-A", "PREROUTING", "-p", "tcp", "--dport", "80", "-j", "DNAT",
                            "--to-destination", config.server_IP + ":80"])
-
-
 iprule.wait()
 print('Set iptables rule 5')
 # Masquerade all packets packet with destination server_IP/32 that source is the proxy
 iprule = subprocess.Popen(["iptables", "-t", "nat", "-A", "POSTROUTING", "-d", config.server_IP + "/32" ,"-p", "tcp",
                            "-m", "tcp", "--dport", "80", "-j", "SNAT", "--to-source", config.proxy_IP])
-
-
 iprule.wait()
 print('Connecting to the PostgreSQL database on '+config.sql_server_ip + " as "+ config.sql_user)
 conn = psycopg2.connect(
@@ -143,6 +142,7 @@ class Proxy:
         http_packet = IP(pkt.get_payload())
         load = http_packet[Raw].load
         load = load.decode("utf-8")
+        print(load)
         return load
 
     def send_new_packet(self, pkt, http_packet, clt_IP):
@@ -153,6 +153,7 @@ class Proxy:
         new_packet = self.build_new_packet(http_packet)
 
         send(new_packet)
+        print(new_packet)
         cur.execute("insert into Proxy_Log(packet_path, client_ip, module, note, type) Values('"
                     + self.pkt_path[0] + "'," + "'" + clt_IP + "'," + "'HTTP_Proxy',"
                     + "'Interaction with Proxy'," + "'Alert'" + ")")
@@ -178,6 +179,7 @@ class Proxy:
                                                         "remove before deployment: User: admin // Password: password "
                                                         "-->\n</body>")
                 injection_code = str.encode(injection_code)
+        print(injection_code)
         gzip_load = self.gzip_str(injection_code)
         if ".png" in self.pkt_path[0]:
             new_packet = self.change_payload(pkt, gzip_load, "image/png")
@@ -208,7 +210,7 @@ class Proxy:
             self.check_creds(self.get_raw(pkt), http_packet[IP].src)
             pkt.accept()
         else:
-            #print("Packet (neither request nor response) received")
+            print("Packet (neither request nor response) received")
             pkt.accept()
         return
 
