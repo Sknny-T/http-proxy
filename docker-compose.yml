@@ -6,7 +6,7 @@ services:
     container_name: "esca-http-proxy"
     network_mode: "host"
     env_file:
-      - ./config.env
+      - ../env_files/http_proxy_config.env
     cap_add:
       - ALL
 

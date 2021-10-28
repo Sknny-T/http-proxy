@@ -13,6 +13,10 @@ import config
 import psycopg2
 import sql
 
+
+print(config.test_config)
+print(config.page_list)
+
 print('Set iptables rule 1')
 # Forward TCP Packet with Destination Port 80 to NFQUEUE
 iprule = subprocess.Popen(["iptables", "-t", "mangle", "-A", "POSTROUTING", "-p", "tcp", "--dport", "80", "-j", "NFQUEUE"], stdout=subprocess.PIPE)
@@ -198,9 +202,12 @@ class Proxy:
             self.check_path(pkt)
         if http_packet.haslayer(HTTPResponse):
             #load = self.get_raw(pkt)
+            print("Test Response")
+            print("Test Inlist",self.in_list)
             print("HTTP Response from "+http_packet[IP].src+" to "+http_packet[IP].dst+ " received")
             print(http_packet[IP].src, config.server_IP, self.in_list)
             if http_packet[IP].src == config.server_IP and self.in_list:
+                print("Test New Packet")
                 self.send_new_packet(pkt, http_packet, clt_IP)
             else:
                 pkt.accept()
