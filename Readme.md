@@ -41,7 +41,7 @@ containing a file, which matches his request. Hereby, the deception of a real we
 
 The following picture shows the response of the host (192.168.56.102) for the requested file /login.php. Because the file is not present on the host the client recieves a 404 not found response. 
 <p align="center">
-	<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/login_host_404.png" alt="drawing" width=50%;"/ >
+	<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/login_host_404.png" alt="drawing" width=50%;"/>
 	*Response for the request of the /login.php file from the host*
 </p>
 
@@ -50,7 +50,7 @@ The following picture shows the response of the host (192.168.56.102) for the re
 
 With the reverse proxy honeypot (192.168.56.106) active the response of the requested file /login.php will be working webpage, as shown in the following picture. This page can then be used to lure the an attacker into waisting time and resources by trying to breach it. 
 <p align="center">
-	<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/login_proxy_hover.png" alt="drawing" width=50%;"/ >
+	<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/login_proxy_hover.png" alt="drawing" width=50%;"/>
 	*Response of the request of the /login.php file from the reverse proxy honeypot*
 </p>
 
@@ -62,13 +62,16 @@ While in the previous section the proxy forged a completely new packet from scra
 
 The following two pictures show the response of the host (192.168.56.102) for the requested file /home.html and the corresponding source code. 
 
-
- ![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_host.png)    
- ![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_host_source.png)   
+<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_host.png" alt="drawing" width=50%;"/>
+<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_host_source.png" alt="drawing" width=50%;"/>
+ 
 
 
 With the reverse proxy honeypot (192.168.56.106) active the response of the requested file /home.html will be the same webpage, as shown in the following two pictures. But in this case the proxy adds an additional html comment into the /home.html file. 
 
+
+<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_proxy.png" alt="drawing" width=50%;"/>
+<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_proxy_source.png" alt="drawing" width=50%;"/>
 
 
 ![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_proxy.png)   
