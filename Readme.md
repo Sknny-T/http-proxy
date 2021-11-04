@@ -33,7 +33,7 @@ containing a file, which matches his request. Hereby, the deception of a real we
 
 <p>
 	<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/Modified%20Traffic.png" alt="drawing" width=50%;"/ >
-	*Communication between client, proxy and host*
+	<em>Communication between client, proxy and host</em>
 </p>
 
 
