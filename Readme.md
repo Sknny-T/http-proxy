@@ -64,16 +64,16 @@ While in the previous section the proxy forged a completely new packet from scra
 The following two pictures show the response of the host (192.168.56.102) for the requested file /home.html and the corresponding source code. 
 
 
-|   |  |
-| ------------ | ------------ |
-| ![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_host.png)    |![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_host_source.png)   |
+ ![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_host.png)    
+ ![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_host_source.png)   
 
 
 With the reverse proxy honeypot (192.168.56.106) active the response of the requested file /home.html will be the same webpage, as shown in the following two pictures. But in this case the proxy adds an additional html comment into the /home.html file. 
 
-|   |  |
-| ------------ | ------------ |
-| ![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_proxy.png)    |![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_proxy_source.png)   |
+
+
+![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_proxy.png)   
+![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_proxy_source.png)   |
 
 
 
