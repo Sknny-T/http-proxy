@@ -32,7 +32,7 @@ Step 6 and 6.1. Next, the proxy will then forge a new packet containing the hone
 containing a file, which matches his request. Hereby, the deception of a real website is created. The client will see the response and will assume that the website is in fact a real response.
 
 <p>
-	<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/Modified%20Traffic.png" alt="drawing" width=50%;"/ >
+	<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/Modified%20Traffic.png" alt="drawing" width=50%;"/></br>
 	<em>Communication between client, proxy and host</em>
 </p>
 
@@ -42,8 +42,8 @@ containing a file, which matches his request. Hereby, the deception of a real we
 The following picture shows the response of the host (192.168.56.102) for the requested file /login.php. Because the file is not present on the host the client recieves a 404 not found response. 
 
 <p>
-	<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/login_host_404.png" alt="drawing" width=50%;"/>
-	*Response for the request of the /login.php file from the host*
+	<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/login_host_404.png" alt="drawing" width=50%;"/></br>
+	<em>Response for the request of the /login.php file from the host</em>
 </p>
 
 </br>
