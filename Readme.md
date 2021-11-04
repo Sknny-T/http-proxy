@@ -1,7 +1,7 @@
 <h1> HTTP Reverse Proxy Honeypot </h1> 
 
 
-<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/esca-dashboard-no-docker/-/raw/master/static/img/esca_logo-01.png" alt="drawing" style="width:100px;"/>
+<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/esca-dashboard-no-docker/-/raw/master/static/img/esca_logo-01.png" alt="drawing" width="20%;"/>
 
 
 ** Table of Contents**
