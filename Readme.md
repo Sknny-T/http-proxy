@@ -7,7 +7,6 @@
 <h3>Table of Contents <h3>
 
 
-
 [TOC]
 
 # Overview
@@ -21,7 +20,7 @@ packets.
 
 # Functionality 
 
-##Injection of a Honeyfile 
+## Injection of a Honeyfile 
 
 This functionality allows the injection of a honeyfile via the HTTP communication. The reverse proxy containing the honeypot forwards all traffic from the client to the server, while also analysing every packet coming through. The image below shows the communication diagram 
 between server, proxy and client. If the client request a file, the proxy will forward the request to the  server. The response from the server gets then gets sent to the proxy and the proxy 
@@ -38,7 +37,7 @@ containing a file, which matches his request. Hereby, the deception of a real we
 </p>
 
 
-###Example Injection
+### Example Injection
 
 The following picture shows the response of the host (192.168.56.102) for the requested file /login.php. Because the file is not present on the host the client recieves a 404 not found response. 
 <p align="center">
