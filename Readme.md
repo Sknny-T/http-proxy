@@ -32,32 +32,56 @@ Instead of forwarding the packet containing the 404 error, the proxy will drop t
 Step 6 and 6.1. Next, the proxy will then forge a new packet containing the honeyfile, which matches the  request, and will send it to the client. The client will receive a valid response 
 containing a file, which matches his request. Hereby, the deception of a real website is created. The client will see the response and will assume that the website is in fact a real response.
 
-
+<p align="center">
+	<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/Modified%20Traffic.png" alt="drawing" style="width:50%;"/ >
+	*Communication between client, proxy and host*
+</p>
 
 
 ###Example Injection
 
 The following picture shows the response of the host (192.168.56.102) for the requested file /login.php. Because the file is not present on the host the client recieves a 404 not found response. 
+<p align="center">
+	<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/login_host_404.png" alt="drawing" style="width:50%;"/ >
+	*Response for the request of the /login.php file from the host*
+</p>
 
+</br>
+</br>
 
 With the reverse proxy honeypot (192.168.56.106) active the response of the requested file /login.php will be working webpage, as shown in the following picture. This page can then be used to lure the an attacker into waisting time and resources by trying to breach it. 
-
+<p align="center">
+	<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/login_proxy_hover.png" alt="drawing" style="width:50%;"/ >
+	*Response of the request of the /login.php file from the reverse proxy honeypot*
+</p>
 
 ## HTML modification of an existing file 
 
-While in the previous section the proxy forged a completely new packet from scratch, matching a non-existing requested file, in this case the proxy edits the HTML file in the response of the server. The proxy receives a response from the server matching, a honeytoken, which will then result in manipulating the HTML file of that response. The manipulation can be in versatile. In this example, the manipulation will be the simple insertion of an HTML comment. The comment will contain login credentials, which seem to be for developing purposes only. It appears like an error, that the comment has not been removed. This is possible by searching the HTML document for any given HTML tag, in this case the closing "</body>" tag, removing that tag and then inserting the desired content with the removed tag at the end of it. 
+While in the previous section the proxy forged a completely new packet from scratch, matching a non-existing requested file, in this case the proxy edits the HTML file in the response of the server. The proxy receives a response from the server matching, a honeytoken, which will then result in manipulating the HTML file of that response. The manipulation can be in versatile. In this example, the manipulation will be the simple insertion of an HTML comment. The comment will contain login credentials, which seem to be for developing purposes only. It appears like an error, that the comment has not been removed. This is possible by searching the HTML document for any given HTML tag, in this case the closing ```</body>``` tag, removing that tag and then inserting the desired content with the removed tag at the end of it. 
 
-## Example Modification 
+### Example Modification 
 
 The following two pictures show the response of the host (192.168.56.102) for the requested file /home.html and the corresponding source code. 
 
 
+|   |  |
+| ------------ | ------------ |
+| ![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_host.png)    |![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_host_source.png)   |
 
 
 With the reverse proxy honeypot (192.168.56.106) active the response of the requested file /home.html will be the same webpage, as shown in the following two pictures. But in this case the proxy adds an additional html comment into the /home.html file. 
 
+|   |  |
+| ------------ | ------------ |
+| ![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_proxy.png)    |![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_proxy_source.png)   |
 
- Prerequisites 
+
+
+
+
+
+
+# Prerequisites 
 
 - Docker
 - Docker-compose 
