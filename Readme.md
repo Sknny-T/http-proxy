@@ -59,25 +59,14 @@ With the reverse proxy honeypot (192.168.56.106) active the response of the requ
 
 While in the previous section the proxy forged a completely new packet from scratch, matching a non-existing requested file, in this case the proxy edits the HTML file in the response of the server. The proxy receives a response from the server matching, a honeytoken, which will then result in manipulating the HTML file of that response. The manipulation can be in versatile. In this example, the manipulation will be the simple insertion of an HTML comment. The comment will contain login credentials, which seem to be for developing purposes only. It appears like an error, that the comment has not been removed. This is possible by searching the HTML document for any given HTML tag, in this case the closing </body> tag, removing that tag and then inserting the desired content with the removed tag at the end of it. 
 
-### Example Modification 
+## Example Modification 
 
 The following two pictures show the response of the host (192.168.56.102) for the requested file /home.html and the corresponding source code. 
 
 
-|   |  |
-| ------------ | ------------ |
-
-![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_host.png)   
-![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_host_source.png)
 
 
 With the reverse proxy honeypot (192.168.56.106) active the response of the requested file /home.html will be the same webpage, as shown in the following two pictures. But in this case the proxy adds an additional html comment into the /home.html file. 
-
-![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_proxy.png)
-
-![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_proxy_source.png)
-
-
 
 
 # Prerequisites 
