@@ -75,11 +75,12 @@ The following two pictures show the response of the host (192.168.56.102) for th
 
 With the reverse proxy honeypot (192.168.56.106) active the response of the requested file /home.html will be the same webpage, as shown in the following two pictures. But in this case the proxy adds an additional html comment into the /home.html file. 
 
-
+<p>
 	<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_proxy.png" alt="drawing" width=50%;"/>
-
+</p>
+<p>
 	<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_proxy_source.png" alt="drawing" width=50%;"/>
-
+</p>
 
 
 
