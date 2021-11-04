@@ -32,7 +32,7 @@ Instead of forwarding the packet containing the 404 error, the proxy will drop t
 Step 6 and 6.1. Next, the proxy will then forge a new packet containing the honeyfile, which matches the  request, and will send it to the client. The client will receive a valid response 
 containing a file, which matches his request. Hereby, the deception of a real website is created. The client will see the response and will assume that the website is in fact a real response.
 
-<p style="text-align: center;">
+<p align="center">
 	<img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/Modified%20Traffic.png" alt="drawing" style="width:50%;"/ >
 	*Communication between client, proxy and host*
 </p>
