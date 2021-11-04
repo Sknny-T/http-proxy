@@ -74,9 +74,6 @@ With the reverse proxy honeypot (192.168.56.106) active the response of the requ
 <img src="https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_proxy_source.png" alt="drawing" width=50%;"/>
 
 
-![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_proxy.png)   
-![](https://dfki-3055.dfki.de/Tillmann_Angeli/http_proxy/-/raw/master/img/home_proxy_source.png)   |
-
 
 
 
