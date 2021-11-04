@@ -57,7 +57,7 @@ The following two pictures show the response of the host (192.168.56.102) for th
 With the reverse proxy honeypot (192.168.56.106) active the response of the requested file /home.html will be the same webpage, as shown in the following two pictures. But in this case the proxy adds an additional html comment into the /home.html file. 
 
 
-# Prerequisites 
+ Prerequisites 
 
 - Docker
 - Docker-compose 
