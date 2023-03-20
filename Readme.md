@@ -29,7 +29,7 @@ Step 6 and 6.1. Next, the proxy will then forge a new packet containing the hone
 containing a file, which matches his request. Hereby, the deception of a real website is created. The client will see the response and will assume that the website is in fact a real response.
 
 
-|  ![](https://dfki-3055.dfki.de/Tillmann_Angeli/readme-images/-/raw/main/Http_Proxy/Modified%20Traffic.png)|
+|  ![](readme_imgs/Modified%20Traffic.png)|
 |:---:|
 | Communication between client, proxy and host  |
 
@@ -39,7 +39,7 @@ containing a file, which matches his request. Hereby, the deception of a real we
 
 The following picture shows the response of the host (192.168.56.102) for the requested file /login.php. Because the file is not present on the host the client recieves a 404 not found response. 
 
-| ![](https://dfki-3055.dfki.de/Tillmann_Angeli/readme-images/-/raw/main/Http_Proxy/login_host_404.png)|
+| ![](readme_imgs/login_host_404.png)|
 |:---:|
 |  Response for the request of the /login.php file from the host |
 
@@ -48,7 +48,7 @@ The following picture shows the response of the host (192.168.56.102) for the re
 
 With the reverse proxy honeypot (192.168.56.106) active the response of the requested file /login.php will be working webpage, as shown in the following picture. This page can then be used to lure the an attacker into waisting time and resources by trying to breach it. 
 
-| ![](https://dfki-3055.dfki.de/Tillmann_Angeli/readme-images/-/raw/main/Http_Proxy/login_proxy_hover.png)|
+| ![](readme_imgs/login_proxy_hover.png)|
 |:---:|
 |  Response of the request of the /login.php file from the reverse proxy honeypot |
 
@@ -60,7 +60,7 @@ While in the previous section the proxy forged a completely new packet from scra
 
 The following two pictures show the response of the host (192.168.56.102) for the requested file /home.html and the corresponding source code. 
 
-|  ![](https://dfki-3055.dfki.de/Tillmann_Angeli/readme-images/-/raw/main/Http_Proxy/home_host.png) | ![](https://dfki-3055.dfki.de/Tillmann_Angeli/readme-images/-/raw/main/Http_Proxy/home_host_source.png)  |
+|  ![](readme_imgs/home_host.png) | ![](readme_imgs/home_host_source.png)  |
 | :------------: | :------------: |
 |  Response of the host    | Source code |
 
