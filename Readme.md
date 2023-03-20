@@ -85,7 +85,6 @@ With the reverse proxy honeypot (192.168.56.106) active the response of the requ
 - Docker
 - Docker-compose 
 - SQL Database 
-- Builds on [Insert link to different project]
 
 ## Enable IP forwarding
 
